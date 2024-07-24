@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Email Tracking Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Email Tracking Dashboard</h1>
+
+        <form id="emailForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <br>
+            <label for="scheduleTime">Schedule Time (YYYY-MM-DDTHH:MM:SS):</label>
+            <input type="datetime-local" id="scheduleTime" name="scheduleTime" required>
+            <br>
+            <button type="submit">Send Email</button>
+        </form>
+
+        <h2>Email Stats</h2>
+        <div id="stats"></div>
+
+        <h2>Email Tracking</h2>
+        <table id="emailTable" border="1">
+            <thead>
+                <tr>
+                    <th>Email ID</th>
+                    <th>Status</th>
+                    <th>Read</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Email records will be appended here dynamically -->
+            </tbody>
+        </table>
+
+        <h2>Failed Emails</h2>
+        <ul id="failedEmails"></ul>
+    </div>
+
+    <script>
+        // Function to fetch email stats
+        const fetchEmailStats = () => {
+            fetch('/email-stats')
+            .then(response => response.json())
+            .then(stats => {
+                const statsDiv = document.getElementById('stats');
+                statsDiv.innerHTML = `
+                    <p>Sent: ${stats.sent}</p>
+                    <p>Failed: ${stats.failed}</p>
+                    <p>Read: ${stats.read}</p>
+                    <p>Unread: ${stats.unread}</p>
+                `;
+            })
+            .catch(error => {
+                console.error('Error fetching email stats:', error);
+                document.getElementById('stats').innerText = 'Error fetching email stats.';
+            });
+        };
+
+        // Function to fetch email status
+        const fetchEmailStatus = (emailId) => {
+            fetch(`/email-status/${emailId}`)
+            .then(response => response.json())
+            .then(result => {
+                const emailTable = document.getElementById('emailTable').getElementsByTagName('tbody')[0];
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${result.emailId}</td>
+                    <td>${result.status}</td>
+                    <td>${result.read ? 'Yes' : 'No'}</td>
+                `;
+                emailTable.appendChild(row);
+            })
+            .catch(error => {
+                console.error(`Error fetching status for email ID ${emailId}:`, error);
+            });
+        };
+
+        // Function to fetch failed emails
+        const fetchFailedEmails = () => {
+            fetch('/failed-emails')
+            .then(response => response.json())
+            .then(failedEmails => {
+                const failedEmailsList = document.getElementById('failedEmails');
+                failedEmailsList.innerHTML = failedEmails.map(email => `<li>${email}</li>`).join('');
+            })
+            .catch(error => {
+                console.error('Error fetching failed emails:', error);
+                document.getElementById('failedEmails').innerText = 'Error fetching failed emails.';
+            });
+        };
+
+        // Function to handle form submission
+        document.getElementById('emailForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const data = {};
+            formData.forEach((value, key) => data[key] = value);
+
+            fetch('/submit-form', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                alert(result.status);
+            })
+            .catch(error => {
+                console.error('Error submitting form:', error);
+            });
+        });
+
+        // Initial fetch for email stats, failed emails, and setup for periodic updates
+        const initializeDashboard = () => {
+            fetchEmailStats();
+            fetchFailedEmails();
+            setInterval(fetchEmailStats, 5000); // Refresh email stats every 5 seconds
+        };
+
+        initializeDashboard(); // Initialize the dashboard on page load
+    </script>
+</body>
+</html>

@@ -3,42 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Send Email</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Contact Us</h1>
-        <form id="contactForm">
-            <label for="name">Name:12</label>
-            <input type="text" id="name" name="name" required>
+    <form id="emailForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <br>
+        <label for="scheduleTime">Schedule Time (YYYY-MM-DDTHH:MM:SS):</label>
+        <input type="datetime-local" id="scheduleTime" name="scheduleTime" required>
+        <br>
+        <button type="submit">Send Email</button>
+    </form>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-
-            <button type="submit">Submit</button>
-        </form>
-        <div id="responseMessage"></div>
-    </div>
+    <h2>Track Email Status</h2>
+    <form id="statusForm">
+        <label for="emailId">Email ID:</label>
+        <input type="text" id="emailId" name="emailId" required>
+        <button type="submit">Check Status</button>
+    </form>
+    <p id="status"></p>
 
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
+        document.getElementById('emailForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
-            const formData = new FormData(this);
+            const formData = new FormData(event.target);
+            const data = {};
+            formData.forEach((value, key) => data[key] = value);
+
             fetch('/submit-form', {
                 method: 'POST',
-                body: formData,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
             })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('responseMessage').innerText = data;
+            .then(response => response.json())
+            .then(result => {
+                alert(result.status);
             })
             .catch(error => {
-                document.getElementById('responseMessage').innerText = 'Error: ' + error;
+                console.error('Error:', error);
+            });
+        });
+
+        document.getElementById('statusForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const emailId = document.getElementById('emailId').value;
+
+            fetch(`/email-status/${emailId}`)
+            .then(response => response.json())
+            .then(result => {
+                document.getElementById('status').innerText = `Email ID: ${result.emailId}, Status: ${result.status}`;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('status').innerText = 'Error fetching status.';
             });
         });
     </script>

@@ -1,0 +1,23 @@
+Step 1: Setup Your Project
+Initialize a new Node.js project:
+npm init -y
+
+2-Install the required libraries:
+
+npm install express body-parser nodemailer
+
+
+3- Email module 
+
+4- Express Server 
+
+5 HTMl ( Optional )
+
+6- Running Server 
+    node app.js  ( Open link : http://localhost:3000/)
+
+
+
+Email Scheduling 
+    npm install node-schedule
+

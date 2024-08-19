@@ -19,10 +19,10 @@
         				.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }
         				.images {display:block !important; width:100% !important;}
         					
-        				.Heading {font-family:'Roboto', Arial, Helvetica Neue, Helvetica, sans-serif !important;}
-        				.MsoNormal {font-family:'Open Sans', Arial, Helvetica Neue, Helvetica, sans-serif !important;}
+        				.Heading {font-family: Calibri!important;}
+        				.MsoNormal {font-family: Calibri !important;}
         				p {margin:0 !important; padding:0 !important;}					
-        				.display-button td, .display-button a {font-family:'Open Sans', Arial, Helvetica Neue, Helvetica, sans-serif !important;}
+        				.display-button td, .display-button a {font-family: Calibri !important;}
         				.display-button a:hover {text-decoration:none !important;}
         				
         				/* MEDIA QUIRES */
@@ -196,6 +196,28 @@
         				   .butn-header {max-width:100% !important; width:100% !important;}
         				    .cta-font {font-size: 32px !important;}
         				}
+
+                        /* Small devices (phones, 600px and down) */
+                        @media (max-width: 600px) {
+                            .header-responsive > .res{
+                                font-size: 15px;
+                                margin-right: 20px;
+                                }
+                            }
+
+                        /* Medium devices (tablets, 601px to 1024px) */
+                        /* @media (min-width: 601px) and (max-width: 1024px) {
+                            .header-responsive {
+                                 font-size: 120px; 
+                                }
+                        } */
+
+                        /* Large devices (desktops, 1025px and up) */
+                        /* @media (min-width: 1025px) {
+                            .header-responsive {
+                                 font-size: 120px; 
+                                }
+                        } */
     </style>
 
 </head>
@@ -205,7 +227,7 @@
    
 
     <!-- MENU STARTS -->
-    <table align="center" bgcolor="#495A62" border="0" cellpadding="0" cellspacing="0" width="100%">
+    <table align="center" bgcolor="white" border="0" cellpadding="0" cellspacing="0" width="100%">
         <tbody>
             <tr>
                 <td align="center">
@@ -254,7 +276,7 @@
                                                                                 <tr>
                                                                                     <td align="center" style="font-size:13px;">
                                                                                         <!--TABLE RIGHT-->
-                                                                                        <table align="center" border="0" cellpadding="0" cellspacing="0" class="display-width-child" width="100%" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width:100%; max-width:100%;">
+                                                                                        <table align="center" border="0" cellpadding="0" cellspacing="0" class="display-width-child header-responsive" width="100%" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width:100%; max-width:100%;">
                                                                                             <tr>
                                                                                                 <td align="center">
                                                                                                     <table align="center" border="0" width="100%" cellpadding="0" cellspacing="0">
@@ -262,10 +284,12 @@
                                                                                                             <td height="15" class="height20" style="mso-line-height-rule:exactly; line-height:15px; font-size:13px;"></td>
                                                                                                         </tr>
                                                                                                         <tr>
-                                                                                                            <td style="color: #4d4e4e; font-family:'Roboto',Arial,Helvetica,sans-serif; font-weight:400; font-size: 12px; line-height: 15px; font-weight: 500;" align="right" valign="middle">
+                                                                                                            <td class="header-responsive" style="color: #4d4e4e; font-family: Calibri !important; font-weight:400; font-size: 12px; line-height: 15px; font-weight: 500;"  valign="middle" align="right">
+                                                                                                                <div class="res">
                                                                                                                 <a style="text-decoration: none; color: black;" href="https://uk.insightss.co/" target="_black"> HOME </a>&nbsp;&nbsp;
                                                                                                                 <a style="text-decoration: none; color: black;" href="https://uk.insightss.co/clients/" target="_black"> CLIENTS </a>&nbsp;&nbsp;
                                                                                                                 <a style="text-decoration: none; color: black;" href="https://uk.insightss.co/request-for-proposal/" target="_black">REQUEST FOR PROPOSAL</a>
+                                                                                                            </div>
                                                                                                             </td>
                                                                                                         </tr>
 
@@ -307,14 +331,14 @@
     <!-- MENU ENDS -->
 
     <!-- HEADER-2 STARTS -->
-    <table align="center" bgcolor="#495A62" border="0" cellpadding="0" cellspacing="0" width="100%">
+    <table align="center" bgcolor="white" border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr>
             <td align="center">
 
                 <div style="display:inline-block; width:100%; max-width:800px; vertical-align:top;" class="width600">
                     <table align="center" border="0" class="display-width-inner" cellpadding="0" cellspacing="0" width="100%" style="padding: 30px; max-width:800px;background-color: white;">
                         <tr>
-                            <td height="60" style="mso-line-height-rule:exactly; line-height:60px;">&nbsp;</td>
+                            <td height="20" style="mso-line-height-rule:exactly; line-height:10px;">&nbsp;</td>
                         </tr>
                         <tr>
                             <!-- ID:TXT PREMIUM TITLE -->
@@ -322,7 +346,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td height="30" style="font-size:0; mso-line-height-rule: exactly; line-height: 30px;">&nbsp;</td>
+                            <td height="0" style="font-size:0; mso-line-height-rule: exactly; line-height: 0px;">&nbsp;</td>
                         </tr>
 
                         <tr>
@@ -334,7 +358,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td height="30" style="font-size:0; mso-line-height-rule: exactly; line-height: 30px;">&nbsp;</td>
+                            <td height="0" style="font-size:0; mso-line-height-rule: exactly; line-height: 0px;">&nbsp;</td>
                         </tr>
 
                     
@@ -368,7 +392,7 @@
     <!-- HEADER-2 ENDS -->
 
     <!-- ABOUT THE OFFICE STARTS -->
-    <table align="center" bgcolor="#495A62" border="0" cellpadding="0" cellspacing="0" width="100%">
+    <table align="center" bgcolor="white" border="0" cellpadding="0" cellspacing="0" width="100%">
         <tbody>
             <tr>
                 <td align="center">
@@ -384,14 +408,14 @@
                                         <div style="display:inline-block; width:100%; max-width:600px; vertical-align:top;" class="width600">
                                             <table align="center" border="0" class="display-width-inner" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
                                                 <tr>
-                                                    <td height="30" style="mso-line-height-rule:exactly; line-height:60px;">&nbsp;</td>
+                                                    <td height="0" style="mso-line-height-rule:exactly; line-height:10px;">&nbsp;</td>
                                                 </tr>
                                                 <tr>
-                                                    <td align="left" style="padding:0 10px;">
+                                                    <td align="left" style="padding:0 0px;">
                                                         <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:100%;">
                                                             <tr>
                                                                 <!-- ID:TXT TITLE -->
-                                                                <td align="left" class="Heading" style="color:#1D2362; font-family:'Roboto',Arial,Helvetica,sans-serif; font-weight:500; font-size:28px; line-height:35px; letter-spacing:1px;">
+                                                                <td align="left" class="Heading" style="color:#1D2362; font-family:'Roboto',Arial,Helvetica,sans-serif; font-weight:700; font-size:28px; line-height:20px; letter-spacing:1px;">
                                                                     Professional Services
                                                                 </td>
                                                             </tr>
@@ -461,11 +485,11 @@
 
    
                                                 <tr>
-                                                    <td align="left" style="padding:0 10px;">
+                                                    <td align="left" style="padding:0 0px;">
                                                         <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:100%;">
                                                             <tr>
                                                                 <!-- ID:TXT TITLE -->
-                                                                <td align="left" class="Heading" style="color:#1D2362; font-family:'Roboto',Arial,Helvetica,sans-serif; font-weight:500; font-size:28px; line-height:35px; letter-spacing:1px;">
+                                                                <td align="left" class="Heading" style="color:#1D2362; font-family:'Roboto',Arial,Helvetica,sans-serif; font-weight:700; font-size:28px; line-height:5px; letter-spacing:1px;">
                                                                     Valuation Advisory Services
                                                                 </td>
                                                             </tr>
@@ -476,7 +500,7 @@
                                                 <tr>
 													<!-- ID:TXT CONTENT -->
 													
-                                                    <td align="left" class="MsoNormal" style="padding: 5px; font-family:'Roboto',Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;font-weight:400;font-style:normal;color:#000000;text-decoration:none;letter-spacing:0px;">
+                                                    <td align="left" class="MsoNormal" style="padding: 0px; font-family:'Roboto',Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;font-weight:400;font-style:normal;color:#000000;text-decoration:none;letter-spacing:0px;">
                                                         <ul>
                                                             <li>
                                                                 <a href="#" style="color:black; text-decoration: none; ">Purchase Price Allocations for Mergers & Acquisitions</a>
@@ -520,17 +544,15 @@
 												</tr>
                                              
                                                
-                                                <tr>
-                                                    <td height="10" style="mso-line-height-rule:exactly; line-height: 10px;">&nbsp;</td>
-                                                </tr>
+                                              
 
 												<tr>
-                                                    <td align="left" style="padding:0 10px;">
+                                                    <td align="left" style="padding:0 0px;">
                                                         <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:100%;">
 															
                                                             <tr>
                                                                 <!-- ID:TXT TITLE -->
-                                                                <td align="left" class="Heading" style="color:#1D2362; font-family:'Roboto',Arial,Helvetica,sans-serif; font-weight:500; font-size:28px; line-height:35px; letter-spacing:1px;">
+                                                                <td align="left" class="Heading" style="color:#1D2362; font-family:'Roboto',Arial,Helvetica,sans-serif; font-weight:700; font-size:28px; line-height:25px; letter-spacing:1px;">
                                                                     Contact Us
                                                                 </td>
                                                             </tr>
@@ -541,7 +563,7 @@
 												
 												<tr>
 													<!-- ID:TXT TITLE -->
-													<td align="left" valign="middle" width="800" style="padding: 25px; font-family:'Roboto',Arial,Helvetica,sans-serif;font-size:13px;line-height:17px;font-weight:400;font-style:normal;color:#000000;text-decoration:none;letter-spacing:0px;">
+													<td align="left" valign="middle" width="800" style="padding: 5px; font-family:'Roboto',Arial,Helvetica,sans-serif;font-size:13px;line-height:17px;font-weight:400;font-style:normal;color:#000000;text-decoration:none;letter-spacing:0px;">
                                                         We offer access to advanced resources and leading technologies enhancing your business process effectiveness and efficiency. We deliver specialized solutions tailored to your unique challenges, seamlessly integrating with your current operations to drive sustainable growth. Our experienced team brings diverse industry expertise, providing fresh insights and innovative problem-solving approaches that add significant value to your company.
 													</td>
 												</tr>
@@ -570,7 +592,7 @@
    
 
     <!-- FOOTER-2 STARTS -->
-    <table align="center" bgcolor="#495A62" border="0" cellpadding="0" cellspacing="0" width="100%">
+    <table align="center" bgcolor="white" border="0" cellpadding="0" cellspacing="0" width="100%">
         <tbody>
             <tr>
                 <td align="center">
@@ -611,7 +633,7 @@
                                                                                                                             <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
                                                                                                                                 <tr>
                                                                                                                                     <!-- ID:TXT FOOTER-2 MAIL -->
-                                                                                                                                    <td class="Heading txt-center" style="font-family:'Roboto',Arial,Helvetica,sans-serif; font-size: 12px; line-height: 15px; font-weight: 500;font-style:normal;color:black;text-decoration:none;letter-spacing:0px;display:inline-block;" align="left"><a href="mailto:uk@insightss.co" style="color:#000000;text-decoration:none;">uk@insightss.co</a>
+                                                                                                                                    <td class="Heading txt-center" style="font-family:'Roboto',Arial,Helvetica,sans-serif; font-size: 12px; line-height: 15px; font-weight:400;font-style:normal;color:black;text-decoration:none;letter-spacing:0px;display:inline-block;" align="left"><a href="mailto:uk@insightss.co" style="color:#000000;text-decoration:none;">uk@insightss.co</a>
                                                                                                                                     </td>
                                                                                                                                 </tr>
                                                                                                                             </table>
@@ -649,7 +671,7 @@
                                                                                                                             <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
                                                                                                                                 <tr>
                                                                                                                                     <!-- ID:TXT FOOTER-2 PH -->
-                                                                                                                                    <td class="Heading txt-center" style="font-family:'Roboto',Arial,Helvetica,sans-serif; font-size: 12px; line-height: 15px; font-weight: 500;font-style:normal;color:black;text-decoration:none;letter-spacing:0px;display:inline-block;" align="left"> 
+                                                                                                                                    <td class="Heading txt-center" style="font-family:'Roboto',Arial,Helvetica,sans-serif; font-size: 12px; line-height: 15px; font-weight: 400;font-style:normal;color:black;text-decoration:none;letter-spacing:0px;display:inline-block;" align="left"> 
                                                                                                                                         <a href="tel:+447502237970" style="color:#000000;text-decoration:none;">+44 7502 237970</a>
                                                                                                                                     </td>
                                                                                                                                 </tr>
@@ -688,7 +710,7 @@
                                                                                                                             <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
                                                                                                                                 <tr>
                                                                                                                                     <!-- ID:TXT FOOTER-2 PH -->
-                                                                                                                                    <td class="Heading txt-center" style="font-family:'Roboto',Arial,Helvetica,sans-serif; font-size: 12px; line-height: 15px; font-weight: 500;font-style:normal;color:black;text-decoration:none;letter-spacing:0px;display:inline-block;" align="left">
+                                                                                                                                    <td class="Heading txt-center" style="font-family:'Roboto',Arial,Helvetica,sans-serif; font-size: 12px; line-height: 15px; font-weight: 400;font-style:normal;color:black;text-decoration:none;letter-spacing:0px;display:inline-block;" align="left">
                                                                                                                                         <a href="http://uk.insightss.co/" style="color:#000000;text-decoration:none;" target="_blank">www.uk.insightss.co</a>
                                                                                                                                     </td>
                                                                                                                                 </tr>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revenue from Qualifying Activities</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f8fc;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #1f4ba5;
+      text-align: center;
+    }
+
+    .conditions-section {
+      margin: 20px 0;
+    }
+
+    .conditions-section h3 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .conditions-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .conditions-list li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .conditions-list input[type="checkbox"] {
+      margin-right: 10px;
+      accent-color: #1f4ba5;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background: #1f4ba5;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-right: 10px;
+    }
+
+    .buttons button:hover {
+      background: #4e8cfb;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Revenue from Qualifying Activities</h2>
+
+    <div class="conditions-section">
+      <h3>Existing Conditions:</h3>
+      <ul class="conditions-list" id="existingConditions">
+        <li><input type="checkbox" id="condition1"> Income derived from transactions with a Free Zone Person who is the Beneficial Recipient, except for income derived from Excluded Activities.</li>
+        <li><input type="checkbox" id="condition2"> Income derived from transactions with a Non-Free Zone Person, but only in respect of Qualifying Activities that are not Excluded Activities.</li>
+        <li><input type="checkbox" id="condition3"> Income derived from the ownership or exploitation of Qualifying Intellectual Property.</li>
+        <li><input type="checkbox" id="condition4"> Any other income provided that the Qualifying Free Zone Person satisfies the de minimis requirements.</li>
+      </ul>
+    </div>
+
+    <div class="buttons">
+      <button class="back-btn" onclick="window.location.href='EligibleFreeZone.html'">Back</button>
+      <button class="next-btn" id="checkConditions">Next</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('checkConditions').addEventListener('click', () => {
+      const allCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+      const uncheckedItems = [];
+
+      allCheckboxes.forEach(checkbox => {
+        if (!checkbox.checked) {
+          uncheckedItems.push(checkbox.parentElement.textContent.trim());
+        }
+      });
+
+      if (uncheckedItems.length === 0) {
+        window.location.href = 'De-Minimis-Rule.html';
+      } else {
+        const params = new URLSearchParams({ unchecked: JSON.stringify(uncheckedItems) });
+        window.location.href = `NonQualify.html?${params.toString()}`;
+      }
+    });
+  </script>
+</body>
+</html>

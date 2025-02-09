@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Tax Eligibility</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f8fb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .eligibility-container {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+        }
+
+        .text-section {
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .buttons .btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: 2px solid #007BFF;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: transparent;
+            color: #007BFF;
+            transition: all 0.3s ease;
+        }
+
+        .buttons .btn:hover {
+            background-color: #0056b3; /* Dark blue */
+            color: white; /* White text */
+        }
+
+        .btn.active {
+            background-color: #007BFF; /* Bright blue */
+            color: white;
+            border: 2px solid #007BFF;
+        }
+
+        .image-section img {
+            border-radius: 10px;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="eligibility-container">
+        <div class="text-section">
+            <h1>Corporate Tax Eligibility</h1>
+            <p>
+                It is a long established fact that a reader will be distracted by the readable
+                content of a page when looking at its layout.
+            </p>
+            <div class="buttons">
+                <button class="btn resident-btn" onclick="toggleActive(this, 'TaxEligibility_Resident.html')">Resident</button>
+                <button class="btn non-resident-btn" onclick="toggleActive(this, 'TaxEligibility_NonResident.html')">Non-resident</button>
+            </div>
+        </div>
+        <div class="image-section">
+            <img src="https://via.placeholder.com/400x300" alt="Corporate Tax Illustration">
+        </div>
+    </div>
+
+    <script>
+        function toggleActive(button, page) {
+            const buttons = document.querySelectorAll('.buttons .btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            button.classList.add('active');
+
+            setTimeout(() => {
+                window.location.href = page;
+            }, 200); 
+        }
+    </script>
+</body>
+</html>

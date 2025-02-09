@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal Business Activity</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f8fc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #1f4ba5, #4e8cfb);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .text-section {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 20px;
+        }
+
+        .text-section h2 {
+            color: #1f4ba5;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .text-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .text-section ul li {
+            margin-bottom: 10px;
+            padding-left: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .text-section ul li input[type="checkbox"] {
+            margin-right: 10px;
+            accent-color: #1f4ba5;
+        }
+
+        .image-section {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #1f4ba5;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .button-container a.enabled {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .button-container a:hover.enabled {
+            background: #4e8cfb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Principal Business Activity as per Trade License</h1>
+        </div>
+        <div class="content">
+            <div class="text-section">
+                <h2>Conditions to be eligible for Qualifying Free Zone Person:</h2>
+                <ul>
+                    <li><input type="checkbox" class="checkbox"> Be a juridical entity incorporated under a free zone authority.</li>
+                    <li><input type="checkbox" class="checkbox"> Maintain adequate substance.</li>
+                    <li><input type="checkbox" class="checkbox"> Derive qualifying income.</li>
+                    <li><input type="checkbox" class="checkbox"> Not has elected to be subject to the standard tax rules and rates.</li>
+                    <li><input type="checkbox" class="checkbox"> Comply with the arm's length principle.</li>
+                    <li><input type="checkbox" class="checkbox"> Maintain transfer pricing documentation.</li>
+                    <li><input type="checkbox" class="checkbox"> Maintain audited financial statements.</li>
+                    <li><input type="checkbox" class="checkbox"> Meet De-Minimis requirements for its non-qualifying revenue.</li>
+                </ul>
+                <div class="button-container">
+                    <a id="qualifyingBtn">Qualifying Activity</a>
+                </div>
+            </div>
+            <div class="image-section">
+                <img src="https://via.placeholder.com/400x300" alt="License Agreement">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const checkboxes = document.querySelectorAll('.checkbox');
+        const button = document.getElementById('qualifyingBtn');
+
+        const updateButtonState = () => {
+            const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+            button.classList.toggle('enabled', anyChecked);
+            button.style.pointerEvents = anyChecked ? "auto" : "none";
+            button.style.opacity = anyChecked ? "1" : "0.5";
+        };
+
+        const handleButtonClick = () => {
+            const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+            if (allChecked) {
+                window.location.href = "RenewActivities.html";
+            } else {
+                window.location.href = "MainLand_Calculator.html";
+            }
+        };
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateButtonState);
+        });
+
+        button.addEventListener('click', handleButtonClick);
+
+        updateButtonState();
+    </script>
+
+
+</body>
+</html>

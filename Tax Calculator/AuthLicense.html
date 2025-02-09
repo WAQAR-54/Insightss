@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Authority Trade License</title>
+    <style>
+        /* body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        } */
+        body {
+            margin-top: 20px;
+            padding-top: 100px;
+            font-family: Arial, sans-serif;
+            background-color: #f4f8fb;
+            /* display: flex; */
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .sub-options {
+            display: none;
+            margin: 10px 0 0 20px;
+        }
+
+            .sub-options button {
+                width: 100%;
+                padding: 8px;
+                background-color: #e9e9e9;
+                border: none;
+                border-radius: 5px;
+                text-align: left;
+                cursor: pointer;
+                margin-bottom: 5px;
+            }
+
+                .sub-options button:hover {
+                    background-color: #d9d9d9;
+                }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>List of Authority Trade License</h2>
+
+        <!-- Dropdown for Mainland and Freezone -->
+        <label for="licenseType">Select License Type:</label>
+        <select id="licenseType" onchange="handleSelectionChange()">
+            <option value="">---Select---</option>
+            <option value="mainland">Mainland</option>
+            <option value="freezone">Freezone</option>
+        </select>
+
+        <!-- Freezone Sub-options -->
+        <div id="freezone-options" class="sub-options">
+            <label for="freezone-location">Select Freezone Location:</label>
+            <select id="freezone-location" onchange="handleLocationChange()">
+                <option value="">Select...</option>
+                <option value="Dubai">FreeZone in Dubai</option>
+                <option value="AbuDhabi">Free Zones in Abu Dhabi</option>
+                <option value="Sharjah">Free Zones in Sharjah</option>
+                <option value="Ajman">Free Zones in Ajman</option>
+                <option value="Fujairah">Free Zones in Fujairah</option>
+                <option value="Khaimah">Free Zones in Ras Al Khaimah</option>
+                <option value="UmmAlQuwain">Free Zones in Umm Al Quwain</option>
+            </select>
+
+            <!-- Dubai Towns -->
+            <div id="dubai-towns" class="sub-options">
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Airport Free Zone (DAFZA)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">International Free Zone Authority (IFZA)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Jebel Ali Free Zone (JAFZA)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Multi Commodities Centre (DMCC)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Silicon Oasis (DSO) Meydan Free Zone</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Internet City (DIC)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Media City (DMC)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai International Financial Centre (DIFC)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Healthcare City (DHCC)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai South (formerly known as Dubai World Central)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Knowledge Park (DKP)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Biotechnology and Research Park (DuBiotech)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Maritime City (DMC)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Cars and Automotive Zone (DUCAMZ)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Design District (d3)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Science Park (DSP)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Textile City</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">International Humanitarian City (IHC)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">International Media Production Zone (IMPZ)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Production City (formerly known as International Media Production Zone or IMPZ)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Outsource City</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Studio City</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai International Academic City (DIAC)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Techno Park</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Auto Zone</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Flower Centre</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Gold and Diamond Park</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Industrial City</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Wholesale City (Dubai Industrial Park)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Dubai Logistics City (Dubai South Logistics District)</button>
+
+                <!-- Add more options here -->
+            </div>
+
+            <!-- Abu Dhabi Areas -->
+            <div id="AbuDhabi-towns" class="sub-options">
+                <button onclick="window.location.href='EligibleFreeZone.html'">Abu Dhabi Global Market (ADGM)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">twofour54 Abu Dhabi</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Khalifa Industrial Zone Abu Dhabi (KIZAD)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Abu Dhabi Airport Free Zone (ADAFZ)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Masdar City Free Zone</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Abu Dhabi Ports Company (ADPC) Free Zones:</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Khalifa Port Free Trade Zone</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Zayed Port Free Zone</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Musaffah Port Free Zone</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Corniche Free Zone</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Al Sila’a Free Zone</button>
+
+            </div>
+
+            <!-- Sharjah Areas -->
+            <div id="sharjah-towns" class="sub-options">
+                <button onclick="window.location.href='EligibleFreeZone.html'">Sharjah Airport International Free Zone (SAIF Zone)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Sharjah Media City (Shams)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Sharjah Research, Technology, and Innovation Park (SRTIP)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Sharjah Healthcare City (SHCC)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Sharjah Publishing City (SPC)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Sharjah Human Resources Development Free Zone (SHRD)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Al Zahia Free Zone</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Sharjah Technology and Innovation Park (STIP)</button>
+
+            </div>
+
+            <!-- Ajman Areas -->
+            <div id="Ajman-towns" class="sub-options">
+                <button onclick="window.location.href='EligibleFreeZone.html'">Ajman Free Zone (AFZ)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Ajman Media City Free Zone</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Ajman China Mall Free Zone</button>
+
+            </div>
+
+            <!-- Fujairah Areas -->
+            <div id="Fujairah-towns" class="sub-options">
+                <button onclick="window.location.href='EligibleFreeZone.html'">Fujairah Free Zone (FFZ)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Fujairah Creative City</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Fujairah Oil Industry Zone (FOIZ)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Fujairah Port</button>
+
+            </div>
+
+            <!-- Ras Al Khaimah Areas -->
+            <div id="RasAlKhaimah-towns" class="sub-options">
+                <button onclick="window.location.href='EligibleFreeZone.html'">Ras Al Khaimah Economic Zone (RAKEZ)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">Ras Al Khaimah Free Trade Zone (RAK FTZ)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">RAK Maritime City Free Zone</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">RAK International Corporate Centre (RAK ICC)</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">RAK Investment Authority (RAKIA) Free Zone</button>
+                <button onclick="window.location.href='EligibleFreeZone.html'">RAK Media City (RAKMC)</button>
+
+            </div>
+
+            <!-- Umm Al Quwain Areas -->
+            <div id="UmmAlQuwain-towns" class="sub-options">
+                <button onclick="window.location.href='EligibleFreeZone.html'">Umm Al Quwain Free Trade Zone (UAQFTZ)</button>
+            </div>
+        </div>
+
+        <!-- Mainland Navigation -->
+        <div id="mainland-options" class="sub-options">
+            <button onclick="navigateTo('MainLand_Calculator.html')">Go to Mainland</button>
+        </div>
+    </div>
+
+    <script>
+        // Handle the selection change (Mainland or Freezone)
+        function handleSelectionChange() {
+            const licenseType = document.getElementById("licenseType").value;
+            const freezoneOptions = document.getElementById("freezone-options");
+            const mainlandOptions = document.getElementById("mainland-options");
+
+            // If Mainland is selected, navigate directly
+            if (licenseType === "mainland") {
+                window.location.href = "MainLand_Calculator.html";
+            }
+
+            // Show Freezone options if Freezone is selected
+            if (licenseType === "freezone") {
+                freezoneOptions.style.display = "block";
+                mainlandOptions.style.display = "none";
+            } else {
+                freezoneOptions.style.display = "none";
+                mainlandOptions.style.display = "none";
+            }
+        }
+
+        // Handle Freezone location change (Dubai, Sharjah, Ajman, Others)
+        function handleLocationChange() {
+            const location = document.getElementById("freezone-location").value;
+            const dubaiTowns = document.getElementById("dubai-towns");
+            const abuDhabiTowns = document.getElementById("AbuDhabi-towns");
+            const sharjahTowns = document.getElementById("sharjah-towns");
+            const ajmanTowns = document.getElementById("Ajman-towns");
+            const fujairahTowns = document.getElementById("Fujairah-towns");
+            const rasAlKhaimahTowns = document.getElementById("RasAlKhaimah-towns");
+            const ummAlQuwainTowns = document.getElementById("UmmAlQuwain-towns");
+
+            // Hide all towns
+            const allTowns = [dubaiTowns, abuDhabiTowns, sharjahTowns, ajmanTowns, fujairahTowns, rasAlKhaimahTowns, ummAlQuwainTowns];
+            allTowns.forEach(town => town.style.display = "none");
+
+            // Show the corresponding sub-options based on the location selected
+            if (location === "Dubai") {
+                dubaiTowns.style.display = "block";
+            } else if (location === "AbuDhabi") {
+                abuDhabiTowns.style.display = "block";
+            } else if (location === "Sharjah") {
+                sharjahTowns.style.display = "block";
+            } else if (location === "Ajman") {
+                ajmanTowns.style.display = "block";
+            } else if (location === "Fujairah") {
+                fujairahTowns.style.display = "block";
+            } else if (location === "Khaimah") {
+                rasAlKhaimahTowns.style.display = "block";
+            } else if (location === "UmmAlQuwain") {
+                ummAlQuwainTowns.style.display = "block";
+            }
+        }
+
+        // Toggle the visibility of the sub-options (Expand/Collapse)
+        function toggleSubOptions(townId) {
+            const town = document.getElementById(townId);
+            if (town.style.display === "none" || town.style.display === "") {
+                town.style.display = "block";
+            } else {
+                town.style.display = "none";
+            }
+        }
+
+        // Navigate to Mainland page
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+
+        // Initial setup (to hide the freezone options until Freezone is selected)
+        document.addEventListener("DOMContentLoaded", () => {
+            handleSelectionChange(); // Set initial visibility
+        });
+    </script>
+</body>
+</html>

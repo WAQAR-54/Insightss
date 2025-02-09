@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal Business Activity</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f8fc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #1f4ba5, #4e8cfb);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .form-section {
+            background: #f5f8fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .form-section h2 {
+            color: #1f4ba5;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f1f4f8;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: flex-start; /* Align buttons to the left */
+            gap: 10px; /* Add space between buttons */
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .button-container .mainland {
+            background: #1f4ba5;
+            color: #fff;
+        }
+
+        .button-container .mainland:hover {
+            background: #4e8cfb;
+        }
+
+        .button-container .cancel {
+            background: transparent;
+            border: 1px solid #1f4ba5;
+            color: #1f4ba5;
+        }
+
+        .button-container .cancel:hover {
+            background: #1f4ba5;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Principal Business Activity as per Trade License</h1>
+        </div>
+
+        <div class="form-section">
+            <h2>Non-Qualify</h2>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Email">
+            </div>
+            <div class="button-container">                
+                <button class="mainland" id="mainlandBtn">Mainland Calculator</button>
+                <button class="cancel" id="cancelBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const mainlandBtn = document.getElementById('mainlandBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+
+        mainlandBtn.addEventListener('click', function() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            if (name === "" && email === "") {
+                alert("Please fill in both fields before proceeding.");
+                return; 
+            }
+
+            const queryString = `?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`;
+
+            window.location.href = `MainLand_Calculator.html${queryString}`;
+        });
+
+        cancelBtn.addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

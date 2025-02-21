@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Non-Qualify / Excluded Activity</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #eef2f3, #ffffff);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .description {
+      margin-bottom: 20px;
+    }
+
+    .checkbox {
+      margin-bottom: 10px;
+    }
+
+    label {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 20px;
+    }
+
+    .eligibility-btn {
+      background-color: #0056b3;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .eligibility-btn:hover {
+      background-color: #003d7a;
+    }
+
+    .unchecked-list {
+      margin-top: 20px;
+      border-top: 1px solid #ddd;
+      padding-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Non-Qualify / Excluded Activity</h2>
+    <div class="description">
+      <div class="checkbox">
+        <input type="checkbox" id="checkbox1" class="checkbox-item">
+        <label for="checkbox1">Excluded Activities.</label>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" id="checkbox2" class="checkbox-item">
+        <label for="checkbox2">Activities that are not Qualifying Activities where the other party to the transaction is a Non-Free Zone Person.</label>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" id="checkbox3" class="checkbox-item">
+        <label for="checkbox3">Activities that are not Qualifying Activities where the other party to the transaction is a Non-Free Zone Person.</label>
+      </div>
+    </div>
+    
+    <div class="unchecked-list" id="uncheckedItemsList"></div>
+    
+    <div class="button-container">
+      <button id="eligibilityBtn" class="eligibility-btn" onclick="navigateToPage()">Condition for Eligibility</button>
+    </div>
+  </div>
+
+  <script>
+    function displayUncheckedItems() {
+      const queryParams = new URLSearchParams(window.location.search);
+      const uncheckedItems = JSON.parse(queryParams.get('unchecked') || '[]');
+      
+      if (uncheckedItems.length > 0) {
+        const uncheckedListContainer = document.getElementById('uncheckedItemsList');
+        uncheckedItems.forEach((item, index) => {
+          const checkboxDiv = document.createElement('div');
+          checkboxDiv.classList.add('checkbox');
+          
+          const checkboxInput = document.createElement('input');
+          checkboxInput.type = 'checkbox';
+          checkboxInput.id = 'checkbox' + (index + 4); // Unique ID for new checkboxes
+          checkboxInput.classList.add('checkbox-item');
+          
+          const checkboxLabel = document.createElement('label');
+          checkboxLabel.setAttribute('for', checkboxInput.id);
+          checkboxLabel.textContent = item;
+
+          checkboxDiv.appendChild(checkboxInput);
+          checkboxDiv.appendChild(checkboxLabel);
+
+          uncheckedListContainer.appendChild(checkboxDiv);
+        });
+      }
+    }
+
+    function navigateToPage() {
+      const allCheckboxes = document.querySelectorAll('.checkbox-item');
+      const allChecked = Array.from(allCheckboxes).every(checkbox => checkbox.checked);
+
+      if (allChecked) {
+        window.location.href = 'De-Minimis-Rule.html';
+      } else {
+        window.location.href = 'De-Minimis-Rule.html';
+      }
+    }
+
+    displayUncheckedItems();
+  </script>
+</body>
+</html>

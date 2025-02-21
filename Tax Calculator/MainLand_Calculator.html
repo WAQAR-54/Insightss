@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculation</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #112368;
+            color: white;
+        }
+        .input-cell input {
+            width: 100%;
+            padding: 5px;
+        }
+        .heading-row {
+            background-color: #112368;
+            color: white;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 class="text-center">Taxable Income and Corporate Tax Calculator</h3>
+<table>
+    <thead>
+        <tr class="heading-row">
+            <th>Particulars</th>
+            <th>Taxable Income</th>
+            <th>Corporate Tax Percentage</th>
+            <th>Tax Amount</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>AED</th>
+            <th>%</th>
+            <th>%</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Taxable Income not exceeding AED 375,000</td>
+            <td><input type="text" id="income-375" placeholder="Enter amount"></td>
+            <td class="input-cell">0%</td>
+            <td><input type="text" id="tax-375" readonly></td>
+        </tr>
+        <tr>
+            <td>Taxable Income exceeding AED 375,000</td>
+            <td><input type="text" id="income-exceeding" placeholder="Enter amount"></td>
+            <td class="input-cell">9%</td>
+            <td><input type="text" id="tax-exceeding" readonly></td>
+        </tr>
+        <tr class="heading-row">
+            <td>Total</td>
+            <td></td>
+            <td></td>
+            <td><input type="text" id="total-taxable-income" readonly></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Adjustments Section -->
+   <!-- Adjustments Section -->
+   <table>
+    <thead>
+        <tr class="heading-row">
+            <th>Particulars</th>
+            <th>Taxable Income</th>
+            <th>Corporate Tax Percentage</th>
+            <th>Tax Amount</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>AED</th>
+            <th>%</th>
+            <th>AED</th>
+        </tr>    
+        <tr>
+            <td>Net Profit or (Loss) / Accounting Profit or (Loss)</td>
+            <td><input type="text" id="net-profit" placeholder="Enter amount" class="amount"></td>
+            <td class="input-cell"></td>
+            <td><input type="text" id="net-profit-tax" readonly hidden></td>
+        </tr>
+        <tr hidden>
+            <td>Adjustments</td>
+            <td><input type="text" id="adjustments" placeholder="Enter amount" class="amount"></td>
+            <td class="input-cell">9%</td>
+            <td><input type="text" id="adjustments-tax" readonly></td>
+        </tr>
+        <tr>
+            <td>Less: Income attributable to Permanent Establishment or nexus in case of Non-Resident</td>
+            <td><input type="text" id="income-permanent-establishment" placeholder="Enter amount" class="amount"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Less: Exempt Income and Other income and gains if they are derived from a Participating Interest.</td>
+            <td><input type="text" id="exempt-income" placeholder="Enter amount" class="amount"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Less: Gains or losses on the transfer, sale, or other disposition of the whole or part of the Participating Interest</td>
+            <td><input type="text" id="gains-losses-transfer" placeholder="Enter amount" class="amount"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Less: Foreign exchange gains or losses in relation to a Participating Interest.</td>
+            <td><input type="text" id="foreign-exchange-gains" placeholder="Enter amount" class="amount"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Less: Impairment gains or losses in relation to a Participating Interest.</td>
+            <td><input type="text" id="impairment-gains" placeholder="Enter amount" class="amount"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Less: Dividend received from a UAE resident company and foreign juridical persons</td>
+            <td><input type="text" id="dividend-received" placeholder="Enter amount" class="amount"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Less: Other profit distributions received from Foreign Juridical Person</td>
+            <td><input type="text" id="other-profit-distributions" placeholder="Enter amount" class="amount"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Add/(Less): Unrealised gains or losses if no election is made</td>
+            <td><input type="text" id="unrealised-gains" placeholder="Enter amount" class="amount"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Add/(Less): Transfer pricing adjustments relating to transactions between Related Parties or Connected Persons</td>
+            <td><input type="text" id="transfer-pricing-adjustments" placeholder="Enter amount" class="amount"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Add/(Less): Reliefs for specific transaction types</td>
+            <td><input type="text" id="reliefs" placeholder="Enter amount" class="amount"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="heading-row">
+            <td colspan="4">100% Allowable Deductions</td>
+        </tr>
+        <tr>
+            <td>Less: Expenditure incurred wholly and exclusively for deriving Taxable Income or for Business Purposes</td>
+            <td><input type="text" id="business-purposes" placeholder="Enter amount" class="amount"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="heading-row">
+            <td colspan="4">50% Allowable Deductions</td>
+        </tr>
+        <tr>
+            <td>Less: Entertainment expenditure in connection with meals, accommodation, transportation, and admission fees</td>
+            <td><input type="text" id="entertainment-expenditure" placeholder="Enter amount" class="amount"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="heading-row">
+            <td colspan="4">Allowable Deductions on Proportionate basis</td>
+        </tr>
+        <tr>
+            <td>Less: Identifiable part or proportion of the expenditure incurred wholly and exclusively for Business purposes</td>
+            <td><input type="text" id="identifiable-expenditure" placeholder="Enter amount" class="amount"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Less: Net Interest Expenditure greater than 30% of EBITDA or 12 Million</td>
+            <td><input type="text" id="interest-expenditure" placeholder="Enter amount" class="amount"></td>
+            <td></td>
+            <td></td>
+        </tr>    
+        <tr class="heading-row">
+            <td colspan="4">Non-Deductible Expenses</td>
+        </tr>
+        <tr>
+            <td>Add: Expenditure incurred in deriving Exempt Income, Participating Interest, Contribution made for employees by an Employer more than 15% of the remunerations</td>
+            <td><input type="text" id="non-deductible-expenditure" placeholder="Enter amount" class="amount"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="heading-row">
+            <td colspan="4">Taxable Income / Tax Losses</td>
+        </tr>
+        <tr>
+            <td>Less: Carry Forward Tax Losses upto 75% of Taxable Income</td>
+            <td><input type="text" id="tax-losses" placeholder="Enter amount" class="amount"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="heading-row">
+            <td colspan="3">Total Taxable Income</td>
+            <td><input type="text" id="total-taxable-incom" readonly></td>
+        </tr>
+    </thead>
+</table>
+</div>
+
+<script>
+    function calculateTax() {
+
+        let inputs = document.querySelectorAll('input[type="text"]');
+
+inputs.forEach(input => {
+    let value = parseFloat(input.value) || 0;
+    if (value < 0) {
+        input.style.border = "2px solid red";
+    } else {
+        input.style.border = "";
+    }
+});
+        let income375 = parseFloat(document.getElementById('income-375').value) || 0;
+        let incomeExceeding = parseFloat(document.getElementById('income-exceeding').value) || 0;
+          let netProfit = parseFloat(document.getElementById("net-profit").value) || 0;
+            let adjustments = parseFloat(document.getElementById("adjustments").value) || 0;
+            let incomePE = parseFloat(document.getElementById("income-permanent-establishment").value) || 0;
+            let exemptIncome = parseFloat(document.getElementById("exempt-income").value) || 0;
+            let gainsLosses = parseFloat(document.getElementById("gains-losses-transfer").value) || 0;
+            let foreignGains = parseFloat(document.getElementById("foreign-exchange-gains").value) || 0;
+            let impairmentGains = parseFloat(document.getElementById("impairment-gains").value) || 0;
+            let dividendReceived = parseFloat(document.getElementById("dividend-received").value) || 0;
+            let profitDistributions = parseFloat(document.getElementById("other-profit-distributions").value) || 0;
+            let unrealisedGains = parseFloat(document.getElementById("unrealised-gains").value) || 0;
+            let transferPricing = parseFloat(document.getElementById("transfer-pricing-adjustments").value) || 0;
+            let reliefs = parseFloat(document.getElementById("reliefs").value) || 0;
+            let businessExpenditure = parseFloat(document.getElementById("business-purposes").value) || 0;
+            let entertainmentExpenditure = parseFloat(document.getElementById("entertainment-expenditure").value) || 0;
+            let identifiableExpenditure = parseFloat(document.getElementById("identifiable-expenditure").value) || 0;
+            let interestExpenditure = parseFloat(document.getElementById("interest-expenditure").value) || 0;
+            let nonDeductibleExpenditure = parseFloat(document.getElementById("non-deductible-expenditure").value) || 0;
+            let taxLosses = parseFloat(document.getElementById("tax-losses").value) || 0;
+
+            let taxNetProfit = netProfit * 0; 
+            let taxAdjustments = adjustments * 0.09; 
+
+            document.getElementById("net-profit-tax").value = taxNetProfit.toFixed(2);
+            document.getElementById("adjustments-tax").value = taxAdjustments.toFixed(2);
+
+            let totalTaxableIncome = netProfit + adjustments - incomePE - exemptIncome - gainsLosses - foreignGains - impairmentGains - dividendReceived
+                - profitDistributions - unrealisedGains - transferPricing - reliefs - businessExpenditure - entertainmentExpenditure
+                - identifiableExpenditure - interestExpenditure - nonDeductibleExpenditure + taxLosses;
+
+            document.getElementById("total-taxable-incom").value = totalTaxableIncome.toFixed(2);
+        let tax375 = income375 * 0;
+        document.getElementById('tax-375').value = tax375;
+
+        let taxExceeding = incomeExceeding * 0.09;
+        document.getElementById('tax-exceeding').value = taxExceeding;
+
+        let totalTaxableIncom = income375 + incomeExceeding;
+        document.getElementById('total-taxable-income').value = totalTaxableIncom;
+
+
+        
+        
+    }
+
+    document.getElementById('income-375').addEventListener('input', calculateTax);
+    document.getElementById('income-exceeding').addEventListener('input', calculateTax);
+
+
+        // function calculateTax() {
+          
+        // }
+
+        const inputElements = document.querySelectorAll('.amount');
+        inputElements.forEach(input => {
+            input.addEventListener('input', calculateTax);
+        });
+        document.querySelectorAll('input[type="text"]').forEach(input => {
+            input.addEventListener('input', calculateTax);
+        });
+        calculateTax();
+</script>
+
+</body>
+</html>

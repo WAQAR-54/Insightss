@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAE Free Zone Tax Calculator</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+        }
+        h3 {
+            color: #112368;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 96%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease-in-out;
+            font-size: 16px;
+        }
+        input[type="text"]:focus {
+            border-color: #112368;
+            box-shadow: 0px 0px 5px rgba(17, 35, 104, 0.5);
+        }
+        .btn {
+            background-color: #112368;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background 0.3s ease-in-out;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background-color: #0d1c56;
+        }
+        .result-container {
+            margin-top: 20px;
+            padding: 15px;
+            background: #eef2ff;
+            border-radius: 8px;
+        }
+        .result {
+            font-size: 18px;
+            font-weight: bold;
+            color: #112368;
+        }
+        .highlight {
+            font-size: 20px;
+            font-weight: bold;
+            color: #d9534f;
+        }
+        @media (max-width: 600px) {
+            body {
+                height: auto;
+            }
+            .container {
+                width: 100%;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>UAE Free Zone Tax Calculator</h3>
+        <div class="form-group">
+            <label for="qualifying-income">Qualifying Free Zone Income (AED):</label>
+            <input type="text" id="qualifying-income" placeholder="Enter amount" oninput="updatePercentage()">
+        </div>
+        <div class="form-group">
+            <label for="tax-percentage">Tax Percentage (%):</label>
+            <input type="text" id="tax-percentage" readonly  value="0">
+        </div>
+        <button class="btn" onclick="calculateTax()">Calculate</button>
+        <div class="result-container">
+            <p class="result">Total Taxable Income: <span id="total-income">0.00</span> AED</p>
+            <p class="result">Tax Amount: <span id="total-tax">0.00</span> AED</p>
+        </div>
+    </div>
+    <script>
+        function updatePercentage() {
+            let income = parseFloat(document.getElementById('qualifying-income').value) || 0;
+            let percentageField = document.getElementById('tax-percentage');
+            percentageField.value = income > 0 ? "0" : "0"; // Set default tax percentage
+            calculateTax();
+        }
+
+        function calculateTax() {
+            let qualifyingIncome = parseFloat(document.getElementById('qualifying-income').value) || 0;
+            let taxPercentage = parseFloat(document.getElementById('tax-percentage').value) || 0;
+            let totalIncome = qualifyingIncome;
+            let totalTax = totalIncome * (taxPercentage / 100);
+            
+            document.getElementById('total-income').textContent = totalIncome.toFixed(2);
+            document.getElementById('total-tax').textContent = totalTax.toFixed(2);
+        }
+    </script>
+</body>
+</html>

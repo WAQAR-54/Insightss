@@ -1,0 +1,30 @@
+<script>
+    const products = [
+        {selector: ".18herbal img", srcsetHover: 'https://pakeezaproducts.store/wp-content/uploads/2024/09/4.png', srcsetDefault: 'https://pakeezaproducts.store/wp-content/uploads/2024/09/22.png'},
+        {selector: ".keratin img", srcsetHover: 'https://pakeezaproducts.store/wp-content/uploads/2024/09/5.png', srcsetDefault: 'https://pakeezaproducts.store/wp-content/uploads/2024/09/26.png'},
+        {selector: ".handmade img", srcsetHover: 'https://pakeezaproducts.store/wp-content/uploads/2024/09/3-1.png', srcsetDefault: 'https://pakeezaproducts.store/wp-content/uploads/2024/09/24.png'},
+        {selector: ".18herbalsh img", srcsetHover: 'https://pakeezaproducts.store/wp-content/uploads/2024/09/1.png', srcsetDefault: 'https://pakeezaproducts.store/wp-content/uploads/2024/09/23.png'},
+        {selector: ".18hair img", srcsetHover: 'https://pakeezaproducts.store/wp-content/uploads/2024/09/2-2.png', srcsetDefault: 'https://pakeezaproducts.store/wp-content/uploads/2024/09/25.png'},
+        {selector: ".handmade200 img", srcsetHover: 'https://pakeezaproducts.store/wp-content/uploads/2024/09/image-1.png', srcsetDefault: 'https://pakeezaproducts.store/wp-content/uploads/2024/09/200ml-bottle.png'},
+        {selector: ".carekit img", srcsetHover: 'https://pakeezaproducts.store/wp-content/uploads/2024/09/11-2.png', srcsetDefault: 'https://pakeezaproducts.store/wp-content/uploads/2024/09/Kit-as-product.png'},
+        {selector: ".antiaging img", srcsetHover: 'https://pakeezaproducts.store/wp-content/uploads/2024/11/MINOXILL.png', srcsetDefault: 'https://pakeezaproducts.store/wp-content/uploads/2024/11/MINOXILL.png'},
+        {selector: ".hairbooster img", srcsetHover: 'https://pakeezaproducts.store/wp-content/uploads/2024/11/HAIR-BOOSTERT.png', srcsetDefault: 'https://pakeezaproducts.store/wp-content/uploads/2024/11/HAIR-BOOSTERT.png'},
+        {selector: ".ubtanface img", srcsetHover: 'https://pakeezaproducts.store/wp-content/uploads/2024/11/UBTAN.png', srcsetDefault: 'https://pakeezaproducts.store/wp-content/uploads/2024/11/UBTAN.png'},
+        {selector: ".acenmask img", srcsetHover: 'https://pakeezaproducts.store/wp-content/uploads/2024/11/FACE-MASK.png', srcsetDefault: 'https://pakeezaproducts.store/wp-content/uploads/2024/11/FACE-MASK.png'},
+        {selector: ".antifacepowder img", srcsetHover: 'https://pakeezaproducts.store/wp-content/uploads/2024/11/72_20241122_103151_0001.png', srcsetDefault: 'https://pakeezaproducts.store/wp-content/uploads/2024/11/72_20241122_103151_0001.png'}
+        {selector: ".AntiAgingFacePack img", srcsetHover: 'https://pakeezaproducts.store/wp-content/uploads/2024/11/ANTI-AGIGN.png', srcsetDefault: 'https://pakeezaproducts.store/wp-content/uploads/2024/11/ANTI-AGIGN.png'}
+        {selector: ".haircarekit img", srcsetHover: 'https://pakeezaproducts.store/wp-content/uploads/2025/02/herbal-hair-care.png', srcsetDefault: 'https://pakeezaproducts.store/wp-content/uploads/2025/02/BENEFITS.png'}
+  
+    ];
+
+    products.forEach(product => {
+        jQuery(product.selector).hover(
+            function() {
+                jQuery(this).attr('srcset', product.srcsetHover);
+            },
+            function() {
+                jQuery(this).attr('srcset', product.srcsetDefault);
+            }
+        );
+    });
+</script>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAE Free Zone Tax Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #112368;
+            color: white;
+        }
+        .input-cell input {
+            width: 100%;
+            padding: 5px;
+        }
+        .heading-row {
+            background-color: #112368;
+            color: white;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 class="text-center">Free Zone Calculator</h3>
+        <table>
+            <thead>
+                <tr class="heading-row">
+                    <th>Particulars</th>
+                    <th>Taxable Income (AED)</th>
+                    <th>Corporate Tax %</th>
+                    <th>Tax Amount (AED)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Qualifying Free Zone Income</td>
+                    <td><input type="text" id="qualifying-income" placeholder="Enter amount"></td>
+                    <td class="input-cell">0%</td>
+                    <td><input type="text" id="tax-qualifying" readonly></td>
+                </tr>
+                <tr class="heading-row">
+                    <td><strong>Total</strong></td>
+                    <td>
+                        <!-- <input type="text" id="total-income" readonly> -->
+                    </td>
+                    <td></td>
+                    <td>
+                        <!-- <input type="text" id="total-tax" readonly> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function calculateTax() {
+            let qualifyingIncome = parseFloat(document.getElementById('qualifying-income').value) || 0;
+            let taxRate = 0.00; // 2% tax rate
+
+            // Tax Calculations
+            let taxQualifying = qualifyingIncome * taxRate;
+            let totalIncome = qualifyingIncome;
+            let totalTax = taxQualifying;
+
+            // Update the fields
+            document.getElementById('tax-qualifying').value = taxQualifying.toFixed(2);
+            document.getElementById('total-income').value = totalIncome.toFixed(2);
+            document.getElementById('total-tax').value = totalTax.toFixed(2);
+        }
+
+        document.getElementById('qualifying-income').addEventListener('input', calculateTax);
+
+        calculateTax();
+    </script>
+</body>
+</html>

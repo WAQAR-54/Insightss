@@ -70,9 +70,9 @@
         </tr>
         <tr class="heading-row">
             <td>Total</td>
-            <td></td>
-            <td></td>
             <td><input type="text" id="total-taxable-income" readonly></td>
+            <td></td>
+            <td><input type="text" id="total-taxable" readonly></td>
         </tr>
     </tbody>
 </table>
@@ -274,12 +274,21 @@ inputs.forEach(input => {
 
         let taxExceeding = incomeExceeding * 0.09;
         document.getElementById('tax-exceeding').value = taxExceeding;
-
+        
         let totalTaxableIncom = income375 + incomeExceeding;
         document.getElementById('total-taxable-income').value = totalTaxableIncom;
+        let total_tax= tax375+taxExceeding;
+        document.getElementById('total-taxable').value = total_tax;
+        let aftersubval; // Declare variable outside
 
+        if (totalTaxableIncome > 0) {
+            aftersubval = totalTaxableIncome - 375000;     
+            } else {
+           aftersubval = 0;
+            }
 
-        
+            document.getElementById("income-375").value = aftersubval;
+
         
     }
 
